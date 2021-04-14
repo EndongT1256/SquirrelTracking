@@ -6,7 +6,10 @@ from .models import Squirrel
 from .forms import AddRequestForm
 from .forms import UpdateRequestForm
 
-
+def index(request):
+    squirrels = Squirrel.objects.all()
+    context = {'squirrels': squirrels}
+    return render(request, 'sightings/home.html', context)
 
 
 def map(request):
